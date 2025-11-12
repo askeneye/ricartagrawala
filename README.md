@@ -13,7 +13,7 @@ Each node runs as both a **gRPC server** and a **client**, and cooperates with o
 - gRPC and protobuf Go plugins:
   ```bash
   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-  **go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+  go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
   ```
 
 
@@ -22,10 +22,7 @@ Each node runs as both a **gRPC server** and a **client**, and cooperates with o
 
 ## Clone the repository
 
-  ```bash
-  git clone https:/github.com/askeneye/ricartagrawala.git
 
-  ```
 ---
 
 ## Run the system 
