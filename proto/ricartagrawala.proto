@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package ra;
+
+option go_package = "ricartagrawala/proto;proto";
+
+// -------------------------------
+// Messages
+// -------------------------------
+
+message Empty {}
+
+// Request for critical section access.
+// In Ricart–Agrawala, REQUEST carries the Lamport timestamp and sender ID.
+// Priority is determined by (timestamp, from_id) with smaller being higher priority.
+message Request {
+  int64 timestamp = 1;   // Lamport logical clock value at send time
+  string from_id = 2;    // Unique node ID (used as tie-breaker on equal timestamps)
+}
+
+// Reply granting permission.
+// In Ricart–Agrawala, a REPLY means "you have my permission right now".
+// We still include a timestamp to keep clocks advancing on receive.
+message Reply {
+  int64 timestamp = 1;   // Sender's Lamport clock when sending reply
+  string from_id = 2;    // Who sent this reply
+  string to_id = 3;      // Intended recipient's node ID
+}
+
+// -------------------------------
+// Service
+// -------------------------------
+//
+// We model the two message types as two unary RPCs.
+// - RequestCS: peer asks us for permission; we may reply immediately or defer.
+// - Reply: peer tells us we have permission (possibly after deferral).
+
+service RAService {
+  // A peer asks for permission to enter the critical section.
+  rpc RequestCS(Request) returns (Empty);
+
+  // A peer grants permission (may be deferred and sent later).
+  rpc SendReply(Reply) returns (Empty);
+}
