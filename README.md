@@ -12,8 +12,9 @@ Each node runs as both a **gRPC server** and a **client**, and cooperates with o
 - **Protocol Buffers** compiler (`protoc`)
 - gRPC and protobuf Go plugins:
   ```bash
-  **go install google.golang.org/protobuf/cmd/protoc-gen-go@latest**
-  **go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest**
+  go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+  **go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+  ```
 
 
 
@@ -22,21 +23,21 @@ Each node runs as both a **gRPC server** and a **client**, and cooperates with o
 ## Clone the repository
 
   ```bash
-  **git clone https:/github.com/askeneye/ricartagrawala.git**
+  git clone https:/github.com/askeneye/ricartagrawala.git
 
-
+  ```
 ---
 
 ## Run the system 
 
 ### Terminal 1
   ```bash
-  **go run ./cmd/node/ -id A -port 5000 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002**
-
+  go run ./cmd/node/ -id A -port 5000 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002
+```
 ### Terminal 2
   ```bash
-  **go run ./cmd/node/ -id B -port 5001 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002**
+  go run ./cmd/node/ -id B -port 5001 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002```
 
 ### Terminal 3
   ```bash
-  **go run ./cmd/node/ -id C -port 5002 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002**
+  go run ./cmd/node/ -id C -port 5002 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002```
