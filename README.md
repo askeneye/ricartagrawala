@@ -1,6 +1,6 @@
 # Ricart–Agrawala Distributed Mutual Exclusion (Go + gRPC)
 
-This project implements the **Ricart–Agrawala distributed mutual exclusion algorithm** using **Golang** and **gRPC**.
+This project implements the **Ricart–Agrawala distributed mutual exclusion algorithm**.
 
 Each node runs as both a **gRPC server** and a **client**, and cooperates with other nodes to ensure that **only one node** can enter the critical section (CS) at a time — while maintaining liveness and fairness using **Lamport logical clocks**.
 
