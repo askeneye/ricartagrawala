@@ -36,8 +36,10 @@ Each node runs as both a **gRPC server** and a **client**, and cooperates with o
 ```
 ### Terminal 2
   ```bash
-  go run ./cmd/node/ -id B -port 5001 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002```
+  go run ./cmd/node/ -id B -port 5001 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002
+  ```
 
 ### Terminal 3
   ```bash
-  go run ./cmd/node/ -id C -port 5002 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002```
+  go run ./cmd/node/ -id C -port 5002 -peers A=127.0.0.1:5000,B=127.0.0.1:5001,C=127.0.0.1:5002
+  ```
